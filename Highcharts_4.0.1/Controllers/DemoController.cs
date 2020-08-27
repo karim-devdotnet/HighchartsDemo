@@ -19,5 +19,10 @@ namespace Highcharts_4._0._1.Controllers
         {
             return View();
         }
+
+        public ActionResult BasicLine()
+        {
+            return View();
+        }
     }
 }

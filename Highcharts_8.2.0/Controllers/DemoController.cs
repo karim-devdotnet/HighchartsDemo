@@ -39,5 +39,34 @@ namespace Highcharts_8._2._0.Controllers
 
             return View();
         }
+
+        public ActionResult BasicLine()
+        {
+            List<int> installationValues = new List<int> { 43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175 };
+            List<int> manufacturingValues = new List<int> { 24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434 };
+            List<int> salesAnDistributionValues = new List<int> { 11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387 };
+            List<int> projectDevelopmentValues = new List<int> { 0, 0, 7988, 12169, 15112, 22452, 34400, 34227 };
+            List<int> otherValues = new List<int> { 12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111 };
+            List<LineSeriesData> installationData = new List<LineSeriesData>();
+            List<LineSeriesData> manufacturingData = new List<LineSeriesData>();
+            List<LineSeriesData> salesAnDistributionData = new List<LineSeriesData>();
+            List<LineSeriesData> projectDevelopmentData = new List<LineSeriesData>();
+            List<LineSeriesData> otherData = new List<LineSeriesData>();
+
+            installationValues.ForEach(p => installationData.Add(new LineSeriesData { Y = p }));
+            manufacturingValues.ForEach(p => manufacturingData.Add(new LineSeriesData { Y = p }));
+            salesAnDistributionValues.ForEach(p => salesAnDistributionData.Add(new LineSeriesData { Y = p }));
+            projectDevelopmentValues.ForEach(p => projectDevelopmentData.Add(new LineSeriesData { Y = p }));
+            otherValues.ForEach(p => otherData.Add(new LineSeriesData { Y = p }));
+
+
+            ViewData["installationData"] = installationData;
+            ViewData["manufacturingData"] = manufacturingData;
+            ViewData["salesAnDistributionData"] = salesAnDistributionData;
+            ViewData["projectDevelopmentData"] = projectDevelopmentData;
+            ViewData["otherData"] = otherData;
+
+            return View();
+        }
     }
 }
